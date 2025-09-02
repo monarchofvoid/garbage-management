@@ -1,0 +1,717 @@
+/* Fade out animation for preloader */
+#ct-preloader.fade-out {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s cubic-bezier(.4,0,.2,1);
+}
+/* ------------------ KPI Card ------------------ */
+.kpi-card {
+  background: linear-gradient(135deg, #e3f2fd 60%, #f1f8e9 100%);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 18px rgba(30,136,229,0.07);
+  border: 1.5px solid #e4ebf5;
+  padding: 2rem 1.5rem;
+  transition: box-shadow .25s, transform .25s;
+  position: relative;
+  overflow: hidden;
+}
+.kpi-card:hover, .kpi-card:focus-within {
+  box-shadow: 0 10px 32px rgba(0,191,166,0.13);
+  transform: translateY(-4px) scale(1.03);
+}
+.kpi-card h6 {
+  color: var(--primary);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.kpi-card p {
+  color: var(--dark);
+  opacity: 0.85;
+  font-size: 1.05rem;
+}
+
+/* ------------------ Hover Lift ------------------ */
+.hover-lift {
+  transition: box-shadow .25s, transform .25s cubic-bezier(.22,1,.36,1);
+  will-change: transform, box-shadow;
+}
+.hover-lift:hover, .hover-lift:focus-within {
+  box-shadow: 0 16px 48px rgba(30,136,229,0.13), 0 2px 8px rgba(0,191,166,0.10);
+  transform: translateY(-8px) scale(1.035);
+  z-index: 2;
+}
+
+/* ------------------ Hover Tilt ------------------ */
+.hover-tilt {
+  transition: box-shadow .25s, transform .25s cubic-bezier(.22,1,.36,1);
+  will-change: transform, box-shadow;
+  perspective: 800px;
+}
+.hover-tilt:hover, .hover-tilt:focus-within {
+  box-shadow: 0 20px 60px rgba(30,136,229,0.14), 0 2px 8px rgba(0,191,166,0.10);
+  z-index: 2;
+}
+/* =============================================================================
+   CleanTrack — Premium Industry-Ready Stylesheet
+   ============================================================================= */
+
+/* ------------------ Reset ------------------ */
+*, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  background: #f8fbff;
+  color: #0d1b2a;
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* ------------------ Logo Animation ------------------ */
+/* Preloader full screen */
+#ct-preloader {
+  position: fixed;
+  inset: 0; /* top:0, right:0, bottom:0, left:0 */
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #3b5ec7; /* or gradient if you prefer */
+}
+
+
+/* Logo video */
+.logo-video {
+  width: clamp(140px, 22vw, 220px); /* scales between mobile and desktop */
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(70, 211, 236, 0.25);
+  align-items: center;
+}
+
+
+/* ------------------ Palette ------------------ */
+:root {
+  --primary: #1e88e5;
+  --secondary: #00bfa6;
+  --accent: #8bc34a;
+  --warning: #ffb300;
+  --danger: #e53935;
+  --dark: #0d1b2a;
+  --muted: #6c7a91;
+
+  --gradient-hero: linear-gradient(135deg, #1e88e5, #00bfa6, #8bc34a);
+  --gradient-card: linear-gradient(135deg, rgba(30,136,229,.12), rgba(0,191,166,.12));
+  --glass-bg: rgba(255,255,255,0.75);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,0.15);
+  --radius: 18px;
+}
+
+/* ------------------ Navbar ------------------ */
+.navbar-cleantrack {
+  backdrop-filter: blur(12px) saturate(180%);
+  background: var(--glass-bg);
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  transition: background .3s ease;
+  border-bottom: 1.5px solid #e4ebf5;
+}
+.navbar-brand {
+  font-weight: 900;
+  letter-spacing: -1px;
+  color: var(--dark);
+  font-size: 1.7rem;
+}
+.navbar-brand .dot {
+  color: var(--primary);
+  font-size: 2rem;
+  line-height: 1;
+}
+.nav-link {
+  font-weight: 600;
+  color: var(--dark);
+  transition: color .3s, background .3s;
+  border-radius: 8px;
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+}
+.nav-link.active, .nav-link:focus, .nav-link:hover {
+  color: var(--primary);
+  background: rgba(30,136,229,0.07);
+}
+
+/* ------------------ Hero ------------------ */
+.btn-ct {
+  color: #fff;
+  background: linear-gradient(135deg, #1e88e5, #00bfa6);
+  border: none;
+  font-weight: 600;
+  padding: .75rem 1.5rem;
+  border-radius: 999px;
+  transition: transform .2s ease, filter .2s ease;
+}
+.btn-ct:hover {
+  filter: brightness(0.95);
+  transform: translateY(-2px);
+}
+.hero {
+  background: var(--gradient-hero);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('https://www.transparenttextures.com/patterns/cubes.png');
+  opacity: .08;
+}
+.hero .headline {
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  font-weight: 800;
+  animation: fadeDown 1.2s ease;
+  letter-spacing: -1.5px;
+}
+.hero .subhead {
+  font-size: 1.25rem;
+  opacity: .93;
+  animation: fadeUp 1.5s ease;
+}
+@keyframes fadeDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: none; } }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+
+
+/* ------------------ Login Section ------------------ */
+.login-section {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: #fff;
+  padding: 6rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("https://www.transparenttextures.com/patterns/cubes.png");
+  opacity: 0.08;
+  animation: floatPattern 18s linear infinite;
+  z-index: 0;
+}
+
+.login-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+.login-intro {
+  font-size: 1.1rem;
+  font-weight: 600;
+  opacity: 0.9;
+  letter-spacing: 0.5px;
+  animation: fadeDown 1.2s ease both;
+}
+
+.login-tagline {
+  font-size: clamp(1.5rem, 4vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 2rem;
+  animation: fadeUp 1.5s ease both;
+}
+
+/* Button refinement */
+.login-section .btn-ct {
+  font-size: 1.1rem;
+  padding: 0.9rem 2.4rem;
+  border-radius: 50px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.login-section .btn-ct:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Reuse animations */
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ------------------ Sections ------------------ */
+.section {
+  padding: clamp(70px, 8vw, 120px) 0;
+  position: relative;
+}
+.section-cleanliness {
+  background: linear-gradient(180deg, #ffffff, #f0f6ff);
+}
+.section-smartcity {
+  background: linear-gradient(180deg, #f7fff9, #ffffff);
+}
+.section-garbage {
+  background: linear-gradient(180deg, #fff8f0, #ffffff);
+}
+.section-greenery {
+  background: linear-gradient(180deg, #ffffff, #f3fff7);
+}
+.section::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -1px;
+  height: 60px;
+  background: inherit;
+  transform: skewY(-2deg);
+  transform-origin: top left;
+  z-index: -1;
+}
+
+/* Overview Section - flowing gradient background */
+#overview {
+  position: relative;
+  background: linear-gradient(135deg, #e3f2fd, #f1f8e9);
+  overflow: hidden;
+}
+#overview::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(30,136,229,0.25), transparent 60%),
+              radial-gradient(circle at bottom right, rgba(0,191,166,0.25), transparent 60%);
+  animation: moveGradient 12s ease-in-out infinite alternate;
+}
+@keyframes moveGradient {
+  from { transform: translate(0,0); }
+  to   { transform: translate(-40px,40px); }
+}
+
+/* Features Section - animated floating bubbles */
+#features {
+  position: relative;
+  background: linear-gradient(180deg,#ffffff,#f0faff);
+  overflow: hidden;
+}
+#features::before {
+  content:"";
+  position:absolute; inset:0;
+  background: url("https://www.transparenttextures.com/patterns/circles.png");
+  opacity:.06;
+  animation: floatPattern 18s linear infinite;
+}
+@keyframes floatPattern {
+  from { background-position: 0 0; }
+  to   { background-position: 200px 400px; }
+}
+
+/* Tech Stack Section - moving diagonal stripes */
+#techstack {
+  position: relative;
+  background: linear-gradient(135deg, #f9fff9, #f0f6ff);
+  overflow:hidden;
+}
+#techstack::before {
+  content:"";
+  position:absolute; inset:0;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(30,136,229,0.06),
+    rgba(30,136,229,0.06) 20px,
+    transparent 20px,
+    transparent 40px
+  );
+  animation: slideStripes 20s linear infinite;
+}
+@keyframes slideStripes {
+  from { background-position: 0 0; }
+  to   { background-position: 200px 200px; }
+}
+
+/* Benefits Section - animated sparkles */
+#benefits {
+  position: relative;
+  background: linear-gradient(180deg,#ffffff,#fef9f3);
+  overflow:hidden;
+}
+#benefits::before {
+  content:"";
+  position:absolute; inset:0;
+  background: url("https://www.transparenttextures.com/patterns/stardust.png");
+  opacity:.1;
+  animation: sparkle 14s linear infinite;
+}
+@keyframes sparkle {
+  from { background-position: 0 0; }
+  to   { background-position: 500px 500px; }
+}
+
+/* Future Scope Section - animated gradient wave */
+#future {
+  position: relative;
+  background: linear-gradient(135deg, #fff8f0, #fff);
+  overflow:hidden;
+}
+#future::before {
+  content:"";
+  position:absolute; inset:0;
+  background: radial-gradient(ellipse at center, rgba(255,179,0,.12), transparent 70%);
+  animation: pulseWave 8s ease-in-out infinite alternate;
+}
+@keyframes pulseWave {
+  from { transform: scale(1); opacity:.8; }
+  to   { transform: scale(1.2); opacity:.5; }
+}
+
+/* Team Section - animated polygon mesh */
+#team {
+  position: relative;
+  background: linear-gradient(180deg,#f3fff7,#ffffff);
+  overflow:hidden;
+}
+#team::before {
+  content:"";
+  position:absolute; inset:0;
+  background: url("https://www.transparenttextures.com/patterns/hexellence.png");
+  opacity:.08;
+  animation: driftMesh 25s linear infinite;
+}
+@keyframes driftMesh {
+  from { background-position: 0 0; }
+  to   { background-position: -600px 400px; }
+}
+
+/* ------------------ Cards ------------------ */
+.card {
+  background: var(--glass-bg);
+  border-radius: var(--radius);
+  box-shadow: 0 6px 24px rgba(0,0,0,.07);
+  transition: transform .25s cubic-bezier(.22,1,.36,1), box-shadow .25s cubic-bezier(.22,1,.36,1);
+  backdrop-filter: blur(10px);
+  border: none;
+}
+.card:hover, .card:focus-within {
+  transform: translateY(-8px) scale(1.025);
+  box-shadow: 0 20px 50px rgba(0,191,166,.18);
+}
+
+/* icon bubble */
+.feature-icon {
+  width: 64px; height: 64px;
+  border-radius: 16px;
+  background: var(--gradient-card);
+  display:flex; align-items:center; justify-content:center;
+  font-size: 1.5rem; color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+/* ------------------ Timeline ------------------ */
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 12px; top: 0; bottom: 0;
+  width: 4px; border-radius: 2px;
+  background: linear-gradient(var(--primary), var(--secondary));
+}
+.timeline-item {
+  margin: 2rem 0;
+  position: relative;
+  padding-left: 0.5rem;
+}
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -6px; top: .5rem;
+  width: 16px; height: 16px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 0 6px rgba(139,195,74,.18);
+}
+
+/* ------------------ Stats ------------------ */
+.stat {
+  border-radius: var(--radius);
+  padding:2rem;
+  background: var(--gradient-card);
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+.stat .value {
+  font-size:2rem;
+  font-weight:800;
+  color: var(--primary);
+}
+.stat .label { color: var(--muted); }
+
+/* ------------------ CTA ------------------ */
+.cta {
+  border-radius: var(--radius);
+  background: var(--gradient-hero);
+  color:#fff;
+  text-align:center;
+  padding:4rem 2rem;
+  box-shadow: var(--shadow-lg);
+  position:relative;
+  overflow:hidden;
+}
+.cta::after {
+  content:"";
+  position:absolute;
+  inset:-30%;
+  background: radial-gradient(circle,rgba(255,255,255,.2),transparent 70%);
+  animation: pulse 6s infinite alternate;
+}
+@keyframes pulse {
+  from{ transform:scale(1);}
+  to{ transform:scale(1.2);}
+}
+
+/* ------------------ Animations on scroll ------------------ */
+.reveal { opacity:0; transform:translateY(40px); transition:all .8s ease; }
+.reveal.is-visible { opacity:1; transform:none; }
+
+.reveal-left { opacity:0; transform:translateX(-40px); transition:all .8s ease; }
+.reveal-left.is-visible { opacity:1; transform:none; }
+
+.reveal-right { opacity:0; transform:translateX(40px); transition:all .8s ease; }
+.reveal-right.is-visible { opacity:1; transform:none; }
+
+.reveal-zoom { opacity:0; transform:scale(.8); transition:all .8s ease; }
+.reveal-zoom.is-visible { opacity:1; transform:scale(1); }
+
+/* ------------------ KPI Bars ------------------ */
+.kpi-bar {
+  height: 10px; width:100%;
+  border-radius:999px;
+  background:#e4ebf5;
+  overflow:hidden;
+}
+.kpi-bar span {
+  display:block;
+  height:100%; width:0;
+  background:linear-gradient(90deg,var(--secondary),var(--accent));
+  transition: width 2s ease;
+}
+.kpi-bar.active span { width:75%; }
+
+/* ------------------ Footer ------------------ */
+.footer {
+  background: #0d1b2a;
+  color: #dce7f5;
+  padding: 2rem 0;
+  border-top: 1.5px solid #e4ebf5;
+}
+.footer a { color: #fff; opacity: .7; transition: .3s; }
+.footer a:hover { opacity: 1; }
+
+/* ------------------ Responsive Tweaks ------------------ */
+@media (max-width: 991.98px) {
+  .navbar-cleantrack .navbar-nav {
+    gap: 0.5rem !important;
+  }
+  .section {
+    padding: 48px 0;
+  }
+  .card, .kpi-card {
+    padding: 1.25rem !important;
+  }
+}
+@media (max-width: 767.98px) {
+  .hero .headline {
+    font-size: 2.2rem;
+  }
+  .section {
+    padding: 32px 0;
+  }
+  .timeline {
+    padding-left: 1rem;
+  }
+}
+
+/* ------------------ Login Page ------------------ */
+.login-body {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated texture */
+.login-body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("https://www.transparenttextures.com/patterns/hexellence.png");
+  opacity: 0.07;
+  animation: driftMesh 25s linear infinite;
+}
+@keyframes driftMesh {
+  from { background-position: 0 0; }
+  to   { background-position: -600px 400px; }
+}
+
+/* Card styling */
+.login-card {
+  max-width: 420px;
+  width: 100%;
+  border-radius: 18px;
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  animation: fadeUp 1.2s ease both;
+}
+
+.login-card h2 {
+  font-size: 1.8rem;
+}
+
+.form-control {
+  border-radius: 12px;
+}
+
+.form-control:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 0.2rem rgba(30,136,229,0.25);
+}
+
+#registerBtn {
+  border-radius: 50px;
+  padding: 0.6rem 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+#registerBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(30,136,229,0.25);
+}
+.benefit-card {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+}
+
+.benefit-card img {
+  transition: transform 0.4s ease;
+}
+
+.benefit-card .card-description {
+  opacity: 0;
+  max-height: 0;
+  transition: opacity 0.4s ease, max-height 0.4s ease;
+  font-size: 0.9rem;
+  margin-top: 10px;
+  color: #555;
+}
+
+.benefit-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.benefit-card:hover img {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.benefit-card:hover .card-description {
+  opacity: 1;
+  max-height: 150px;
+}
+/*------------Register page--------------------------*/
+.form-message {
+  margin-top: 10px;
+  font-weight: 600;
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+  text-align: center;
+}
+
+.form-message.success {
+  color: green;
+}
+
+.form-message.error {
+  color: red;
+}
+
+.form-message.fade-in {
+  opacity: 1;
+}
+.form-message.fade-out {
+  opacity: 0;
+}
+/*----------------dashboard--------------------------*/
+
+/* Profile hover text */
+.profile-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.profile-circle {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #007bff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-text {
+  position: absolute;
+  right: 55px;
+  background: #007bff;
+  color: #fff;
+  font-size: 14px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  opacity: 0;
+  transform: translateX(20px);
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.profile-container:hover .profile-text {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Profile Box */
+.profile-box {
+  position: absolute;
+  top: 70px;
+  right: 30px;
+  width: 250px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  display: none;
+  z-index: 1000;
+}
+
+.profile-box h5 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 600;
+}
